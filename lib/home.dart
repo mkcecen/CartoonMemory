@@ -4,24 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:cartoon_memory/data/data.dart';
 import 'package:cartoon_memory/models/TileModel.dart';
 
-void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Home(),
-    );
-  }
-}
+
 
 class Home extends StatefulWidget {
+  int type;
+  Home({Key key,this.type}):super(key:key);
   @override
   _HomeState createState() => _HomeState();
 }
@@ -29,10 +17,26 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List<TileModel> gridViewTiles = new List<TileModel>();
   List<TileModel> questionPairs = new List<TileModel>();
-
+  int type;
+  String levelInfo;
   @override
   void initState() {
     // TODO: implement initState
+ type =widget.type;
+ switch (type) {
+   case 6:
+     levelInfo = "Easy";
+     break;
+     case 8:
+     levelInfo = "Medium";
+     break;
+     case 16:
+     levelInfo = "Hard";
+     break;
+     
+   default:
+   
+ }
     super.initState();
     reStart();
   }
@@ -57,6 +61,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text(levelInfo),centerTitle: true,),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(

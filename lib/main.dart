@@ -6,10 +6,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'levels.dart';
+
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.white, // status bar color
+    statusBarColor: Colors.transparent, // status bar color
   ));
+  
   runApp(MaterialApp(
     theme:
     ThemeData(primaryColor: Colors.lightBlue, accentColor: Colors.blueGrey),
@@ -37,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 2), () => print("Splach Done!"));
     Future.delayed(const Duration(seconds: 2), () async {
       Navigator.push(
-          context, new MaterialPageRoute(builder: (context) => new Home()));
+          context, new MaterialPageRoute(builder: (context) => new Levels()));
       // new MaterialPageRoute(builder: (context) => HomePage()));
     });
   }
