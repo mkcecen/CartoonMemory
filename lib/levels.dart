@@ -20,42 +20,13 @@ class Levels extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ButtonTheme(
-            minWidth: width / 2,
-            child: RaisedButton(
-              onPressed: ()=>routePage(context, 6),
-              animationDuration: Duration(seconds: 1),
-              child: Text("3 X 2"),
-              color: Colors.green[100],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                  side: BorderSide(color: Colors.red)),
-            ),
-          ),
+         commonButton(context, "3 x 2"),
           size(),
-          ButtonTheme(
-            minWidth: width / 2,
-            child: RaisedButton(
-                onPressed: ()=>routePage(context, 8),
-                animationDuration: Duration(seconds: 1),
-                child: Text("4 X 2"),
-                color: Colors.green[100],
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(color: Colors.red))),
-          ),
+                 commonButton(context, "4 x 2"),
+
           size(),
-          ButtonTheme(
-            minWidth: width / 2,
-            child: RaisedButton(
-                onPressed: ()=>routePage(context, 16),
-                animationDuration: Duration(seconds: 1),
-                child: Text("4 X 4"),
-                color: Colors.green[100],
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(color: Colors.red))),
-          ),
+                  commonButton(context, "4 x 4"),
+
         ],
       ),
     );
@@ -70,5 +41,19 @@ class Levels extends StatelessWidget {
   routePage(BuildContext ctx, int type) {
     Navigator.push(
         ctx, MaterialPageRoute(builder: (context) => Home(type:type)));
+  }
+  Widget commonButton(BuildContext ctx,String type){
+    return  ButtonTheme(
+            minWidth: width / 2,
+            child: RaisedButton(
+              onPressed: ()=>routePage(ctx, 6),
+              animationDuration: Duration(seconds: 1),
+              child: Text("3 X 2"),
+              color: Colors.green[100],
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                  side: BorderSide(color: Colors.red)),
+            ),
+          );
   }
 }
