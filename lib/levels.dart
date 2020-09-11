@@ -20,12 +20,12 @@ class Levels extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-         commonButton(context, "3 x 2"),
+         commonButton(context, "Easy",6),
           size(),
-                 commonButton(context, "4 x 2"),
+                 commonButton(context, "Medium",12),
 
           size(),
-                  commonButton(context, "4 x 4"),
+                  commonButton(context, "Hard",16),
 
         ],
       ),
@@ -42,13 +42,13 @@ class Levels extends StatelessWidget {
     Navigator.push(
         ctx, MaterialPageRoute(builder: (context) => Home(type:type)));
   }
-  Widget commonButton(BuildContext ctx,String type){
+  Widget commonButton(BuildContext ctx,String type,int count){
     return  ButtonTheme(
             minWidth: width / 2,
             child: RaisedButton(
-              onPressed: ()=>routePage(ctx, 6),
+              onPressed: ()=>routePage(ctx, count),
               animationDuration: Duration(seconds: 1),
-              child: Text("3 X 2"),
+              child: Text(type),
               color: Colors.green[100],
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18.0),

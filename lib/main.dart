@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
 
-import 'package:cartoon_memory/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,9 +8,8 @@ import 'package:flutter/services.dart';
 import 'levels.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent, // status bar color
-  ));
+
+  //SystemChrome.setEnabledSystemUIOverlays([]);
   
   runApp(MaterialApp(
     theme:
@@ -19,6 +17,8 @@ void main() {
     debugShowCheckedModeBanner: false,
     home: SplashScreen(),
   ));
+  SystemChrome.setEnabledSystemUIOverlays([]);
+
 }
 
 class SplashScreen extends StatefulWidget {
